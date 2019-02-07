@@ -1,0 +1,22 @@
+language: python
+
+python:
+  - "3.6"
+
+cache:
+  pip: true
+
+install:
+  - pip install -r requirements_dev.txt
+
+script:
+  - python manage.py test flights --settings=DummyAirport.settings.dev
+
+branches:
+  only:
+    - master
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
