@@ -30,6 +30,10 @@ PREREQ_APPS = [
 
 PROJECT_APPS = [
     'flights.apps.AppConfig',
+    'passengers.apps.AppConfig',
+    'companies.apps.AppConfig',
+    'planes.apps.AppConfig',
+    'timeline.apps.AppConfig',
 ]
 
 INSTALLED_APPS = PREREQ_APPS + PROJECT_APPS
@@ -67,8 +71,12 @@ WSGI_APPLICATION = 'DummyAirport.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dummy_airport',
+        'USER': 'postgres',
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
