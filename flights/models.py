@@ -1,6 +1,8 @@
 from django.db import models
 
 from passengers.models import Passenger
+from companies.models import Company
+from planes.models import Plane
 
 
 class Flight(models.Model):
@@ -9,8 +11,9 @@ class Flight(models.Model):
     arrival_city = models.CharField(max_length=20, db_index=True)
     departure_time = models.DateTimeField()
     arrival_time = models.DateTimeField()
-    is_international = models.BooleanField()
     distance = models.PositiveSmallIntegerField()
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True)
+    plane = models.ForeignKey(Plane, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         db_table = 'flights'

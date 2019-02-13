@@ -5,8 +5,7 @@ from planes.models import Plane
 
 class Company(models.Model):
     name = models.CharField(max_length=15, db_index=True, unique=True)
-    caption = models.CharField(max_length=100)
-    perform_international_flights = models.BooleanField()
+    caption = models.TextField()
     planes = models.ManyToManyField(Plane)
 
     class Meta:
