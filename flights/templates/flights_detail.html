@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<div class="dashboard">
+    <div class="card">
+        <h5 class="card-header">Flight "{{ flight.flight_code }}" info:</h5>
+        <div class="card-body">
+            <p class="card-text">Departure city: {{ flight.departure_city }} </p>
+            <p class="card-text">Arrival city: {{ flight.arrival_city }} </p>
+            <p class="card-text">Departure time: {{ flight.departure_time }} </p>
+            <p class="card-text">Arrival time: {{ flight.arrival_time }} </p>
+            <p class="card-text">Company: {{ flight.company.name }} </p>
+            <p class="card-text">Plane: {{ flight.plane.model }} </p>
+            <p class="card-text">Distance: {{ flight.distance }} </p>
+            <p class="card-text">Duration: {{ flight.duration}} </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+</body>
+</html>

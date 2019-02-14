@@ -22,6 +22,10 @@ class Flight(models.Model):
     def __str__(self):
         return f'{self.flight_code}'
 
+    @property
+    def duration(self):
+        return self.arrival_time - self.departure_time
+
 
 class Registration(models.Model):
     passenger = models.OneToOneField(Passenger, on_delete=models.CASCADE)

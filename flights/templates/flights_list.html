@@ -15,18 +15,16 @@
         <th scope="col">Arrival city</th>
         <th scope="col">Departure time</th>
         <th scope="col">Arrival time</th>
-        <th scope="col">Distance</th>
     </tr>
   </thead>
   <tbody>
   {% for flight in flights %}
     <tr>
-      <td>{{ flight.flight_code }}</td>
+      <td><a href={% url 'flights:detail' flight.flight_code %}>{{ flight.flight_code }}</a></td>
       <td>{{ flight.departure_city }}</td>
       <td>{{ flight.arrival_city }}</td>
       <td>{{ flight.departure_time }}</td>
       <td>{{ flight.arrival_time }}</td>
-      <td>{{ flight.distance }}</td>
     </tr>
   {% endfor %}
   </tbody>
