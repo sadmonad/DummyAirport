@@ -53,7 +53,10 @@ ROOT_URLCONF = 'DummyAirport.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(os.path.dirname(BASE_DIR), 'templates/'),
+            os.path.join(os.path.dirname(BASE_DIR), 'passengers/templates/')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
